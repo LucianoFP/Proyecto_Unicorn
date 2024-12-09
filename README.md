@@ -1,29 +1,79 @@
-# 📊 Proyecto de Transformación de Base de Datos en SQL
+# 📝 Proyecto SQL: Limpieza y Normalización de Datos
 
-Este repositorio contiene un proyecto detallado donde transformamos, limpiamos y analizamos datos de una base SQL relacionada con el rendimiento académico de estudiantes. A continuación, se describen los pasos clave y los scripts utilizados.
-
----
-
-## 🗂️ Estructura del Proyecto
-
-- `sql/`: Carpeta que contiene los scripts SQL organizados por etapas del proyecto.
-  - `01-backup-original.sql`: Creación de respaldo inicial.
-  - `02-renombrar-campos.sql`: Renombrado de columnas para cumplir con estándares.
-  - `03-limpieza-de-datos.sql`: Limpieza de datos y eliminación de duplicados.
-  - `04-transformacion-y-tablas.sql`: Normalización y creación de tablas relacionadas.
-  - `05-vistas.sql`: Creación de vistas para análisis.
+Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como objetivo limpiar, normalizar y transformar una base de datos de rendimiento estudiantil. A continuación, se detalla cada uno de los pasos realizados.
 
 ---
 
-## 🚀 Pasos Realizados
+## 📁 Estructura del Proyecto
 
-### 1️⃣ Respaldo y Preparación
-- **Duplicación de la base de datos** para garantizar un respaldo seguro antes de realizar cambios.
-- Se utilizó el script [`01-backup-original.sql`](sql/01-backup-original.sql).
+- **`sql/`**: Carpeta donde se encuentran todos los scripts SQL.
+  - `01_backup.sql`: Script para crear un respaldo de la base de datos original.
+  - `02_data_cleaning.sql`: Script para la limpieza y estandarización de datos.
+  - `03_data_normalization.sql`: Script para normalizar la base de datos en tablas relacionadas.
+  - Otros scripts según las tareas realizadas.
 
-### 2️⃣ Renombrado de Columnas
-- Las columnas originales tenían nombres no estándar. Se modificaron para cumplir con las reglas de SQL.
-- Ejemplo: 
-  ```sql
-  ALTER TABLE students_performance
-  CHANGE COLUMN `parental level of education` parental_level_of_education VARCHAR(50);
+---
+
+## 🚀 Pasos del Proyecto
+
+### **1. Crear un Respaldo**
+Duplicamos la base de datos original como un respaldo de seguridad antes de realizar cualquier cambio. El script correspondiente se encuentra en `sql/01_backup.sql`.
+
+### **2. Limpieza de Datos**
+- Cambiamos nombres de columnas para seguir una convención uniforme y legible.
+- Identificamos y eliminamos duplicados.
+- Verificamos valores nulos y únicos para garantizar la consistencia.
+- Este proceso está documentado en `sql/02_data_cleaning.sql`.
+
+### **3. Incorporación de Nuevas Columnas**
+Agregamos nuevas columnas para análisis avanzado, como:
+- Redes sociales utilizadas (`social_media_platforms`).
+- Horas promedio de uso (`usage_hours`).
+- Impacto calculado en el rendimiento (`impact_score`).
+
+---
+
+### **4. Normalización de la Base de Datos**
+Separamos la tabla principal en múltiples tablas relacionadas para cumplir con las normas de normalización (hasta la tercera forma normal). Los pasos incluyen:
+- Crear tablas de referencia para datos como género, etnia, nivel educativo de los padres, etc.
+- Actualizar la tabla principal para usar claves foráneas.
+- Los scripts están en `sql/03_data_normalization.sql`.
+
+---
+
+### **5. Creación de Vistas**
+Para facilitar el análisis, creamos vistas que agrupan y resumen los datos:
+- **Vista de rendimiento por género.**
+- **Vista de impacto de redes sociales en el rendimiento.**
+- **Vista de rendimiento por nivel educativo de los padres.**
+- **Vista de rendimiento según tipo de almuerzo.**
+- **Vista de impacto de cursos de preparación.**
+
+Los detalles están en `sql/04_views.sql`.
+
+---
+
+## ✨ Resultados Esperados
+- **Base de datos limpia y estandarizada.**
+- **Mayor flexibilidad para análisis avanzados.**
+- **Consultas optimizadas mediante vistas predefinidas.**
+
+---
+
+## 📚 Recursos Utilizados
+- [MySQL](https://www.mysql.com/): Para la gestión de la base de datos.
+- Documentación oficial de SQL para mejores prácticas.
+
+---
+
+## 🙌 Colaboración
+Si tienes sugerencias o encuentras algún error, no dudes en abrir un issue o enviar un pull request.
+
+---
+
+## 🎯 Próximos Pasos
+- Incorporar más vistas para análisis personalizados.
+- Automatizar la limpieza de datos con procedimientos almacenados.
+
+---
+

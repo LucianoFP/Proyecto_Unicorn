@@ -6,11 +6,12 @@ Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como obj
 
 ## 📁 Estructura del Proyecto
 
-- **`sql/`**: Carpeta donde se encuentran todos los scripts SQL.
-  - `01_backup.sql`: Script para crear un respaldo de la base de datos original.
-  - `02_data_cleaning.sql`: Script para la limpieza y estandarización de datos.
-  - `03_data_normalization.sql`: Script para normalizar la base de datos en tablas relacionadas.
-  - Otros scripts según las tareas realizadas.
+- `sql/1_backup_data.sql`: Script para crear un respaldo de la base de datos original.
+- `sql/2_data_cleaning.sql`: Script para la limpieza y validación de datos.
+- `sql/3_add_new_columns.sql`: Script para agregar columnas adicionales.
+- `sql/4_data_normalization.sql`: Script para normalizar la base de datos en tablas relacionadas.
+- `sql/5_views_creation.sql`: Script para la creación de vistas relacionadas.
+
 
 ---
 

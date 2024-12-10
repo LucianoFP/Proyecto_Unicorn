@@ -1,0 +1,41 @@
+-- Renombrar columnas para una mejor consistencia
+ALTER TABLE students_performance
+CHANGE COLUMN `parental level of education` parental_level_of_education VARCHAR(50);
+
+ALTER TABLE students_performance
+CHANGE COLUMN `race/ethnicity` race_ethnicity VARCHAR(50);
+
+ALTER TABLE students_performance
+CHANGE COLUMN `test preparation course` test_preparation_course VARCHAR(50);
+
+ALTER TABLE students_performance
+CHANGE COLUMN `math score` math_score VARCHAR(50);
+
+ALTER TABLE students_performance
+CHANGE COLUMN `reading score` reading_score VARCHAR(50);
+
+ALTER TABLE students_performance
+CHANGE COLUMN `writing score` writing_score VARCHAR(50);
+
+-- Agregar columna ID
+ALTER TABLE students_performance
+ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
+
+-- Identificar duplicados
+SELECT gender, race_ethnicity, parental_level_of_education, lunch, test_preparation_course, 
+       math_score, reading_score, COUNT(*) AS Total_Repetidos
+FROM students_performance
+GROUP BY gender, race_ethnicity, parental_level_of_education, lunch, test_preparation_course, 
+         math_score, reading_score
+HAVING COUNT(*) > 1;
+
+-- Eliminar duplicados
+DELETE FROM students_performance
+WHERE id NOT IN (
+    SELECT id FROM (
+        SELECT MIN(id) AS id
+        FROM students_performance
+        GROUP BY gender, race_ethnicity, parental_level_of_education, lunch, 
+                 test_preparation_course, math_score, reading_score
+    ) AS temp
+);

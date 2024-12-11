@@ -1,4 +1,7 @@
--- Duplico la base de datos, para tener un respaldo. Crearé una que se llame original.
+-- Duplico la base de datos para tener un respaldo. 
+-- Crearé una copia de la base de datos original llamada "original" para realizar cambios sin afectar los datos originales.
+-- Este paso asegura que en caso de un error, podamos restaurar la base de datos original sin perder información.
+
 
 CREATE DATABASE original;
 

@@ -32,3 +32,26 @@ SELECT
 FROM students_performance sp
 JOIN parental_level_of_education pe ON sp.parental_level_of_education_id = pe.id
 GROUP BY pe.education_level_name;
+
+Rendimiento Promedio por Tipo de Almuerzo
+CREATE VIEW avg_performance_by_lunch AS
+SELECT 
+    l.lunch_type AS lunch,
+    AVG(sp.math_score) AS avg_math_score,
+    AVG(sp.reading_score) AS avg_reading_score,
+    AVG((sp.math_score + sp.reading_score) / 2) AS avg_overall_score
+FROM students_performance sp
+JOIN lunch l ON sp.lunch_id = l.id
+GROUP BY l.lunch_type;
+
+Rendimiento Promedio por Curso de Preparación de Pruebas
+CREATE VIEW avg_performance_by_test_preparation_course AS
+SELECT 
+    t.course_name AS test_preparation_course,
+    AVG(sp.math_score) AS avg_math_score,
+    AVG(sp.reading_score) AS avg_reading_score,
+    AVG((sp.math_score + sp.reading_score) / 2) AS avg_overall_score
+FROM students_performance sp
+JOIN test_preparation_course t ON sp.test_preparation_course_id = t.id
+GROUP BY t.course_name;
+

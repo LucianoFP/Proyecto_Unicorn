@@ -1,4 +1,4 @@
-# 📝 Proyecto SQL: Limpieza y Normalización de Datos
+![image](https://github.com/user-attachments/assets/c79400b1-f648-4699-918e-82f425fe6def)# 📝 Proyecto SQL: Limpieza y Normalización de Datos
 
 Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como objetivo limpiar, normalizar y transformar una base de datos de rendimiento estudiantil. A continuación, se detalla cada uno de los pasos realizados.
 
@@ -6,10 +6,10 @@ Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como obj
 
 ## 📁 Estructura del Proyecto
 
-- `sql/1_backup_data.sql`: Script para crear un respaldo de la base de datos original.
+- `sql/1_Create_y_backup_data.sql`: Script para crear un respaldo de la base de datos original.
 - `sql/2_data_cleaning.sql`: Script para la limpieza y validación de datos.
 - `sql/3_add_new_columns.sql`: Script para agregar columnas adicionales.
-- `sql/4_data_normalization.sql`: Script para normalizar la base de datos en tablas relacionadas.
+- `sql/4_create_reference_tables.sql`: Script para normalizar la base de datos en tablas relacionadas.
 - `sql/5_views_creation.sql`: Script para la creación de vistas relacionadas.
 
 

@@ -1,5 +1,6 @@
--- 1. Renombrar columnas con nombres no acordes a la sintaxis estándar de SQL.
--- Estas columnas contienen caracteres o espacios que pueden causar problemas en consultas avanzadas.
+-- 1. Ahora, trabajaré en la base de datos "cargabbdd".
+-- Cambio los nombres de algunos campos para hacerlos compatibles con la sintaxis de SQL y mejorar la legibilidad de las columnas.
+-- Estos cambios son necesarios para mantener una convención de nombres más adecuada para futuras consultas.
 
 ALTER TABLE students_performance
 CHANGE COLUMN `parental level of education` parental_level_of_education VARCHAR(50);
@@ -19,11 +20,16 @@ CHANGE COLUMN `reading score` reading_score VARCHAR(50);
 ALTER TABLE students_performance
 CHANGE COLUMN `writing score` writing_score VARCHAR(50);
 
+
 -- 2. Agregar una columna de identificador único (ID) autoincrement.
--- Esto facilita la manipulación y referencia de los datos en futuras operaciones, especialmente en la eliminación de duplicados.
+
+-- Añado una columna de identificador único a la tabla `students_performance`, 
+-- lo cual permitirá identificar cada registro de manera única. 
+-- Esto también facilita la eliminación de duplicados y el mantenimiento de la base de datos.
 
 ALTER TABLE students_performance
 ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
+
 
 
 -- 3. Identificar registros duplicados.

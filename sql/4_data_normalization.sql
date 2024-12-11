@@ -29,18 +29,37 @@ CREATE TABLE social_media_platforms (
     platform_name VARCHAR(100) NOT NULL
 );
 
--- Insertar valores únicos en tablas de referencia
+-- Insertar valores únicos desde `students_performance` a las tablas de referencia.
 INSERT INTO gender (gender_name)
 SELECT DISTINCT gender FROM students_performance;
 
 INSERT INTO race_ethnicity (race_ethnicity_name)
 SELECT DISTINCT race_ethnicity FROM students_performance;
 
--- Actualizar tabla principal con claves foráneas
+INSERT INTO parental_level_of_education (education_level_name)
+SELECT DISTINCT parental_level_of_education FROM students_performance;
+
+INSERT INTO lunch (lunch_type)
+SELECT DISTINCT lunch FROM students_performance;
+
+INSERT INTO test_preparation_course (course_name)
+SELECT DISTINCT test_preparation_course FROM students_performance;
+
+INSERT INTO social_media_platforms (platform_name)
+SELECT DISTINCT social_media_platforms FROM students_performance;
+
+-- Ahora vamos a modificar la tabla `students_performance` para que contenga claves foráneas
+-- que referencian a las tablas de referencia creadas anteriormente.
+
 ALTER TABLE students_performance
 ADD COLUMN gender_id INT,
-ADD COLUMN race_ethnicity_id INT;
+ADD COLUMN race_ethnicity_id INT,
+ADD COLUMN parental_level_of_education_id INT,
+ADD COLUMN lunch_id INT,
+ADD COLUMN test_preparation_course_id INT,
+ADD COLUMN social_media_platforms_id INT;
 
+-- Actualizar los valores de las claves foráneas en `students_performance`
 UPDATE students_performance sp
 JOIN gender g ON sp.gender = g.gender_name
 SET sp.gender_id = g.id;
@@ -49,7 +68,28 @@ UPDATE students_performance sp
 JOIN race_ethnicity r ON sp.race_ethnicity = r.race_ethnicity_name
 SET sp.race_ethnicity_id = r.id;
 
--- Eliminar columnas originales
+UPDATE students_performance sp
+JOIN parental_level_of_education p ON sp.parental_level_of_education = p.education_level_name
+SET sp.parental_level_of_education_id = p.id;
+
+UPDATE students_performance sp
+JOIN lunch l ON sp.lunch = l.lunch_type
+SET sp.lunch_id = l.id;
+
+UPDATE students_performance sp
+JOIN test_preparation_course t ON sp.test_preparation_course = t.course_name
+SET sp.test_preparation_course_id = t.id;
+
+UPDATE students_performance sp
+JOIN social_media_platforms sm ON sp.social_media_platforms = sm.platform_name
+SET sp.social_media_platforms_id = sm.id;
+
+
+-- Después de actualizar la tabla con las claves foráneas, eliminamos las columnas originales.
 ALTER TABLE students_performance
 DROP COLUMN gender,
-DROP COLUMN race_ethnicity;
+DROP COLUMN race_ethnicity,
+DROP COLUMN parental_level_of_education,
+DROP COLUMN lunch,
+DROP COLUMN test_preparation_course,
+DROP COLUMN social_media_platforms;

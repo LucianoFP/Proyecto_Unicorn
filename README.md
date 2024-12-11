@@ -50,7 +50,7 @@ Para facilitar el análisis, creamos vistas que agrupan y resumen los datos:
 - **Vista de rendimiento según tipo de almuerzo.**
 - **Vista de impacto de cursos de preparación.**
 
-Los detalles están en `sql/04_views.sql`.
+Los detalles están en `sql/5_views_creation.sql`.
 
 ---
 

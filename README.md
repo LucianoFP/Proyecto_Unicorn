@@ -38,7 +38,7 @@ Agregamos nuevas columnas para análisis avanzado, como:
 Separamos la tabla principal en múltiples tablas relacionadas para cumplir con las normas de normalización (hasta la tercera forma normal). Los pasos incluyen:
 - Crear tablas de referencia para datos como género, etnia, nivel educativo de los padres, etc.
 - Actualizar la tabla principal para usar claves foráneas.
-- Los scripts están en `sql/03_data_normalization.sql`.
+- Los scripts están en `sql/4_create_reference_tables.sql`.
 
 ---
 

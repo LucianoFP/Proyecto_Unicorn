@@ -16,8 +16,9 @@ Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como obj
 
 ## 🚀 Pasos del Proyecto
 
-### **1. Crear un Respaldo**
-Duplicamos la base de datos original como un respaldo de seguridad antes de realizar cualquier cambio. El script correspondiente se encuentra en `sql/1_Create_y_backup_data.sql`.
+### **1. Crear Esquema y Respaldo**
+Creamos un esquema en el cual volcaremos el dataset seleccionado para su posterior analisis.
+Duplicamos la base de datos original como un respaldo de seguridad antes de realizar cualquier cambio. La explicacion correspondiente se encuentra en `sql/1_Create_y_backup_data.sql`.
 
 ### **2. Limpieza de Datos**
 - Cambiamos nombres de columnas para seguir una convención uniforme y legible.

@@ -5,7 +5,7 @@ Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como obj
 
 ## 📁 Estructura del Proyecto
 
-- `sql/1_Create_y_backup_data.sql`: Script para crear un respaldo de la base de datos original.
+- `sql/1_Create_y_backup_data.sql`: Pasos para crear el esquema junto al respaldo de la base de datos original.
 - `sql/2_data_cleaning.sql`: Script para la limpieza y validación de datos.
 - `sql/3_add_new_columns.sql`: Script para agregar columnas adicionales.
 - `sql/4_create_reference_tables.sql`: Script para normalizar la base de datos en tablas relacionadas.

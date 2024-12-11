@@ -8,7 +8,7 @@ Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como obj
 - `sql/1_Create_y_backup_data.sql`: Pasos para crear el esquema junto al respaldo de la base de datos original.
 - `sql/2_data_cleaning.sql`: Script para la limpieza y validación de datos.
 - `sql/3_add_new_columns.sql`: Script para agregar columnas adicionales.
-- `sql/4_create_reference_tables.sql`: Script para normalizar la base de datos en tablas relacionadas.
+- `sql/4_create_reference_tables.sql`: Script para referenciar la base de datos en tablas relacionadas.
 - `sql/5_views_creation.sql`: Script para la creación de vistas relacionadas.
 
 
@@ -18,6 +18,7 @@ Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como obj
 
 ### **1. Crear Esquema y Respaldo**
 Creamos un esquema en el cual volcaremos el dataset seleccionado para su posterior analisis.
+
 Duplicamos la base de datos original como un respaldo de seguridad antes de realizar cualquier cambio. La explicacion correspondiente se encuentra en `sql/1_Create_y_backup_data.sql`.
 
 ### **2. Limpieza de Datos**

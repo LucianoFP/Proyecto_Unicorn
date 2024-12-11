@@ -23,13 +23,14 @@ Duplicamos la base de datos original como un respaldo de seguridad antes de real
 - Cambiamos nombres de columnas para seguir una convención uniforme y legible.
 - Identificamos y eliminamos duplicados.
 - Verificamos valores nulos y únicos para garantizar la consistencia.
-- Este proceso está documentado en `sql/02_data_cleaning.sql`.
+- Este proceso está documentado en `sql/2_data_cleaning.sql`.
 
 ### **3. Incorporación de Nuevas Columnas**
 Agregamos nuevas columnas para análisis avanzado, como:
 - Redes sociales utilizadas (`social_media_platforms`).
 - Horas promedio de uso (`usage_hours`).
 - Impacto calculado en el rendimiento (`impact_score`).
+- Encontrarán el código en sql/3_add_new_columns.sql
 
 ---
 

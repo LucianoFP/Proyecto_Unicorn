@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/c79400b1-f648-4699-918e-82f425fe6def)# 📝 Proyecto SQL: Limpieza y Normalización de Datos
 
 Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como objetivo limpiar, normalizar y transformar una base de datos de rendimiento estudiantil. A continuación, se detalla cada uno de los pasos realizados.
 

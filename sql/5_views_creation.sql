@@ -55,3 +55,29 @@ FROM students_performance sp
 JOIN test_preparation_course t ON sp.test_preparation_course_id = t.id
 GROUP BY t.course_name;
 
+Creamos una vista para ver como se comportan las categorias
+    
+CREATE VIEW performance_by_impact_category AS
+SELECT 
+    impact_category,
+    COUNT(*) AS student_count,
+    AVG(math_score) AS avg_math_score,
+    AVG(reading_score) AS avg_reading_score
+FROM students_performance
+GROUP BY impact_category;
+
+Crear una vista para ver los estudiantes con rendimiento critico
+
+    CREATE VIEW low_performance_students AS
+SELECT 
+    id, 
+    math_score, 
+    reading_score, 
+    writing_score,
+    (math_score + reading_score + writing_score) / 3 AS avg_score
+FROM students_performance
+WHERE math_score < 50 OR reading_score < 50 OR writing_score < 50
+ORDER BY avg_score;
+
+
+

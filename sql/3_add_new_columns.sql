@@ -50,3 +50,17 @@ SELECT social_media_platforms, usage_hours, impact_score, math_score, reading_sc
 FROM students_performance
 ORDER BY impact_score DESC
 LIMIT 20;
+
+Segmentaremos a los estudiantes según su impacto_score y crear agrupaciones (High, Medium, Low), para analizar mejor los patrones.
+-- Agregar una nueva columna para categorías:
+
+ALTER TABLE students_performance
+ADD COLUMN impact_category VARCHAR(20);
+
+UPDATE students_performance
+SET impact_category = CASE
+    WHEN impact_score <= 2 THEN 'Low'
+    WHEN impact_score <= 5 THEN 'Medium'
+    ELSE 'High'
+END;
+

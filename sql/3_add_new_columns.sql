@@ -4,6 +4,11 @@
 --    - social_media_platforms: Las redes sociales utilizadas por cada estudiante.
 --    - usage_hours: Horas promedio de uso de redes sociales por día.
 --    - impact_score: Un puntaje calculado que estima el impacto del uso de redes en el rendimiento académico.
+--    - ATENCION, QUIZAS TENGADS QUE DESACTIVAR EL SAFE MODE SI TE DA ERROR, ESO SE HACE CON LA SIGUIENTE SENTENCIA:
+
+SET SQL_SAFE_UPDATES = 0;
+
+--    - Ahora si puedo continuar.
 
 ALTER TABLE students_performance
 ADD social_media_platforms VARCHAR(255), -- Redes que usa el estudiante

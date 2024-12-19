@@ -1,5 +1,5 @@
 
-Este repositorio contiene el desarrollo de un proyecto en SQL que tiene como objetivo limpiar, normalizar y transformar una base de datos de rendimiento estudiantil. A continuación, se detalla cada uno de los pasos realizados.
+Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el uso de redes sociales, influyen en el rendimiento académico de los estudiantes. El análisis incluye desde la limpieza de datos y la normalización hasta la creación de vistas analíticas y métricas personalizadas.
 
 ---
 

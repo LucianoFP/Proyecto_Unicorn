@@ -1,38 +1,25 @@
--- 1. Ahora, trabajaré en la base de datos "cargabbdd".
--- Cambio los nombres de algunos campos para hacerlos compatibles con la sintaxis de SQL y mejorar la legibilidad de las columnas.
--- Estos cambios son necesarios para mantener una convención de nombres más adecuada para futuras consultas.
+-- 1) ESTANDARIZACIÓN DE NOMBRES DE COLUMNAS
+Renombramos columnas para que sigan una convención uniforme.
+
 
 ALTER TABLE students_performance
-CHANGE COLUMN `parental level of education` parental_level_of_education VARCHAR(50);
-
-ALTER TABLE students_performance
-CHANGE COLUMN `race/ethnicity` race_ethnicity VARCHAR(50);
-
-ALTER TABLE students_performance
-CHANGE COLUMN `test preparation course` test_preparation_course VARCHAR(50);
-
-ALTER TABLE students_performance
-CHANGE COLUMN `math score` math_score VARCHAR(50);
-
-ALTER TABLE students_performance
-CHANGE COLUMN `reading score` reading_score VARCHAR(50);
-
-ALTER TABLE students_performance
+CHANGE COLUMN `parental level of education` parental_level_of_education VARCHAR(50),
+CHANGE COLUMN `race/ethnicity` race_ethnicity VARCHAR(50),
+CHANGE COLUMN `test preparation course` test_preparation_course VARCHAR(50),
+CHANGE COLUMN `math score` math_score VARCHAR(50),
+CHANGE COLUMN `reading score` reading_score VARCHAR(50),
 CHANGE COLUMN `writing score` writing_score VARCHAR(50);
 
 
--- 2. Agregar una columna de identificador único (ID) autoincrement.
-
--- Añado una columna de identificador único a la tabla `students_performance`, 
--- lo cual permitirá identificar cada registro de manera única. 
--- Esto también facilita la eliminación de duplicados y el mantenimiento de la base de datos.
+-- 2. AGREGAR COLUMNA DE INDENTIFICADOR UNICO (ID)
+-- Añado una columna de identificador único a la tabla `students_performance`,  lo cual permitirá identificar cada registro de manera única. Esto también facilita la eliminación de duplicados y el mantenimiento de la base de datos.
 
 ALTER TABLE students_performance
 ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
 
 
 
--- 3. Identificar registros duplicados.
+-- 3. IDENTIFICAR REGISTROS DUPLICADOS
 -- Aquí agrupamos los datos en función de todas las columnas relevantes excepto la ID y contamos las ocurrencias.
 
 SELECT gender, race_ethnicity, parental_level_of_education, lunch, test_preparation_course, 
@@ -104,4 +91,6 @@ WHERE id NOT IN (
             reading_score
     ) AS temp
 );
+
+-- Estos cambios son necesarios para mantener una convención de nombres más adecuada para futuras consultas.
 

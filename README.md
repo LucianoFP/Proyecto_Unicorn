@@ -3,71 +3,96 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 
 ---
 
-## 📁 Estructura del Proyecto
+📂 Estructura del Proyecto
+create_backup.sql: Creación del esquema y respaldo de los datos originales.
+data_cleaning.sql: Pasos para la limpieza y validación de datos.
+new_columns.sql: Incorporación de nuevas columnas y métricas.
+database_normalization.sql: Normalización de la base de datos con claves foráneas.
+views_creation.sql: Creación de vistas para análisis tabulares.
 
-- `sql/1_Create_y_backup_data.sql`: Pasos para crear el esquema junto al respaldo de la base de datos original.
-- `sql/2_data_cleaning.sql`: Script para la limpieza y validación de datos.
-- `sql/3_add_new_columns.sql`: Script para agregar columnas adicionales.
-- `sql/4_create_reference_tables.sql`: Script para referenciar la base de datos en tablas relacionadas.
-- `sql/5_views_creation.sql`: Script para la creación de vistas relacionadas.
 
-
----
-
-## 🚀 Pasos del Proyecto
-
-### **1. Crear Esquema y Respaldo**
-Creamos un esquema en el cual volcaremos el dataset seleccionado para su posterior analisis.
-
-Duplicamos la base de datos original como un respaldo de seguridad antes de realizar cualquier cambio. La explicacion correspondiente se encuentra en `sql/1_Create_y_backup_data.sql`.
-
-### **2. Limpieza de Datos**
-- Cambiamos nombres de columnas para seguir una convención uniforme y legible.
-- Identificamos y eliminamos duplicados.
-- Verificamos valores nulos y únicos para garantizar la consistencia.
-- Este proceso está documentado en `sql/2_data_cleaning.sql`.
-
-### **3. Incorporación de Nuevas Columnas**
-Agregamos nuevas columnas para análisis avanzado, como:
-- Redes sociales utilizadas (`social_media_platforms`).
-- Horas promedio de uso (`usage_hours`).
-- Impacto calculado en el rendimiento (`impact_score`).
-- Encontrarán el código en sql/3_add_new_columns.sql
 
 ---
 
-### **4. Normalización de la Base de Datos**
-Separamos la tabla principal en múltiples tablas relacionadas para cumplir con las normas de normalización (hasta la tercera forma normal). Los pasos incluyen:
-- Crear tablas de referencia para datos como género, etnia, nivel educativo de los padres, etc.
-- Actualizar la tabla principal para usar claves foráneas.
-- Los scripts están en `sql/4_create_reference_tables.sql`.
+🚀 Pasos del Proyecto
+1️⃣ Crear Esquema y Respaldo
+Se creó un esquema para almacenar los datos originales, asegurando un respaldo para proteger la integridad del dataset.
+
+Código: create_backup.sql
+
+Resumen del código:
+
+Crea la tabla base students_performance y carga los datos originales.
+Protege los datos para prevenir errores durante modificaciones futuras.
+
+
+2️⃣ Limpieza de Datos
+Se implementaron múltiples pasos de validación y limpieza para asegurar la calidad de los datos.
+
+Código: data_cleaning.sql
+
+Resumen del código:
+
+Uso de convenciones de nombres consistentes (snake_case).
+Adición de identificadores únicos para evitar duplicados.
+Detección y eliminación de valores nulos o incorrectos.
+Validación de rangos numéricos para las notas.
+
+3️⃣ Incorporación de Nuevas Columnas
+Se enriquecieron los datos con nuevas columnas calculadas que reflejan métricas personalizadas como el impacto del uso de redes sociales en el rendimiento académico.
+
+Código: new_columns.sql
+
+Resumen del código:
+
+Introducción de columnas como:
+Plataformas de redes sociales.
+Horas promedio de uso de redes.
+Impacto calculado del uso de redes.
+Asignación dinámica de valores en base al rendimiento.
 
 ---
 
-### **5. Creación de Vistas**
-Para facilitar el análisis, creamos vistas que agrupan y resumen los datos:
-- **Vista de rendimiento por género.**
-- **Vista de impacto de redes sociales en el rendimiento.**
-- **Vista de rendimiento por nivel educativo de los padres.**
-- **Vista de rendimiento según tipo de almuerzo.**
-- **Vista de impacto de cursos de preparación.**
+4️⃣ Normalización de la Base de Datos
+La base de datos fue normalizada para cumplir con la tercera forma normal (3NF), mejorando la organización y reduciendo redundancias.
 
-Los detalles están en `sql/5_views_creation.sql`.
+Código: database_normalization.sql
 
----
+Resumen del código:
 
-## ✨ Resultados Esperados
-- **Base de datos limpia y estandarizada.**
-- **Mayor flexibilidad para análisis avanzados.**
-- **Consultas optimizadas mediante vistas predefinidas.**
+Se crearon tablas de referencia para:
+Género, raza/etnicidad, nivel educativo de los padres, etc.
+Las relaciones fueron actualizadas mediante claves foráneas.
+Se eliminaron columnas redundantes para mantener consistencia.
 
 ---
 
-## 📚 Recursos Utilizados
-- [MySQL](https://www.mysql.com/): Para la gestión de la base de datos.
-- Documentación oficial de SQL para mejores prácticas.
+5️⃣ Creación de Vistas
+Se implementaron vistas para facilitar el análisis de los datos a través de consultas específicas.
+
+Código: views_creation.sql
+
+Resumen del código:
+
+Vistas agregadas:
+Rendimiento promedio por género.
+Impacto de las redes sociales en el rendimiento.
+Comparación de rendimiento según categorías clave (impacto, almuerzo, etc.).
+---
+
+🎯 Resultados Esperados
+Base de datos limpia y organizada: Ideal para futuros análisis.
+Vistas analíticas: Ofrecen resúmenes clave para entender tendencias y correlaciones.
+Consultas replicables: Útiles para predecir y modelar datos similares.
 
 ---
+
+## 🛠️ Recursos Utilizados
+
+- **MySQL:** Para la gestión y análisis de la base de datos.  
+- **Python (Jupyter Notebook):** Para preparar y enriquecer el dataset antes de cargarlo en SQL.  
+- **Kaggle:** Fuente del dataset base.  
+- **Documentación oficial:** Garantiza el uso de mejores prácticas.
 
 ## 🙌 Colaboración
 Si tienes sugerencias o encuentras algún error, no dudes en abrir un issue o enviar un pull request.

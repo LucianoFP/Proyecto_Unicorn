@@ -11,10 +11,11 @@ database_normalization.sql: Normalización de la base de datos con claves forán
 views_creation.sql: Creación de vistas para análisis tabulares.
 
 
-
 ---
 
 🚀 Pasos del Proyecto
+
+
 1️⃣ Crear Esquema y Respaldo
 Se creó un esquema para almacenar los datos originales, asegurando un respaldo para proteger la integridad del dataset.
 

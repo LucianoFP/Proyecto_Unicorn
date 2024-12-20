@@ -1,5 +1,5 @@
 -- 1) ESTANDARIZACIÓN DE NOMBRES DE COLUMNAS
-Renombramos columnas para que sigan una convención uniforme.
+Este código realiza ajustes iniciales en la estructura de la base de datos. Cambiamos nombres de columnas para seguir buenas prácticas de nomenclatura (snake_case) y aseguramos que todas las columnas sean del tipo adecuado.
 
 
 ALTER TABLE students_performance
@@ -20,7 +20,7 @@ ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY;
 
 
 -- 3. IDENTIFICAR REGISTROS DUPLICADOS
--- Aquí agrupamos los datos en función de todas las columnas relevantes excepto la ID y contamos las ocurrencias.
+-- En esta etapa, se identifican y eliminan duplicados en la tabla students_performance, manteniendo solo los registros más antiguos. Esto ayuda a garantizar que no haya datos repetidos, lo que podría distorsionar los análisis posteriores.
 
 SELECT gender, race_ethnicity, parental_level_of_education, lunch, test_preparation_course, 
        math_score, reading_score, COUNT(*) AS Total_Repetidos
@@ -91,6 +91,3 @@ WHERE id NOT IN (
             reading_score
     ) AS temp
 );
-
--- Estos cambios son necesarios para mantener una convención de nombres más adecuada para futuras consultas.
-

@@ -1,108 +1,100 @@
 
-Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el uso de redes sociales, influyen en el rendimiento académico de los estudiantes. El análisis incluye desde la limpieza de datos y la normalización hasta la creación de vistas analíticas y métricas personalizadas.
+Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el uso de redes sociales, influyen en el rendimiento académico de los estudiantes. Evalúa desde la limpieza de datos y la normalización hasta la creación de vistas útiles y análisis personalizados.
 
----
+✨ Pasos del Proyecto
 
-📂 Estructura del Proyecto
-create_backup.sql: Creación del esquema y respaldo de los datos originales.
-data_cleaning.sql: Pasos para la limpieza y validación de datos.
-new_columns.sql: Incorporación de nuevas columnas y métricas.
-database_normalization.sql: Normalización de la base de datos con claves foráneas.
-views_creation.sql: Creación de vistas para análisis tabulares.
+1. 🗂️ Creación del Proyecto: Copia de Seguridad
 
+Objetivo: Crear una estructura inicial para almacenar los datos originales, asegurando un respaldo seguro en caso de problemas.
 
----
+Tareas:
 
-🚀 Pasos del Proyecto
+Generación de archivos de respaldo para proteger la información original.
 
+Código relacionado: create_backup.sql
 
-1️⃣ Crear Esquema y Respaldo
-Se creó un esquema para almacenar los datos originales, asegurando un respaldo para proteger la integridad del dataset.
+2. 📥 Carga de los Datos
 
-Código: create_backup.sql
+Objetivo: Importar los datos originales a la base de datos, asegurando un formato limpio y organizado.
 
-Resumen del código:
+Tareas:
 
-Crea la tabla base students_performance y carga los datos originales.
-Protege los datos para prevenir errores durante modificaciones futuras.
+Validación inicial para prevenir errores durante la carga.
 
+Conversión de los datos a un formato estándar compatible con la base de datos.
 
-2️⃣ Limpieza de Datos
-Se implementaron múltiples pasos de validación y limpieza para asegurar la calidad de los datos.
+Código relacionado: load_data.sql
 
-Código: data_cleaning.sql
+3. 🧺 Limpieza de los Datos
 
-Resumen del código:
+Objetivo: Implementar reglas de validación y limpieza para asegurar la calidad y consistencia de los datos.
 
-Uso de convenciones de nombres consistentes (snake_case).
-Adición de identificadores únicos para evitar duplicados.
-Detección y eliminación de valores nulos o incorrectos.
-Validación de rangos numéricos para las notas.
+Tareas:
 
-3️⃣ Incorporación de Nuevas Columnas
-Se enriquecieron los datos con nuevas columnas calculadas que reflejan métricas personalizadas como el impacto del uso de redes sociales en el rendimiento académico.
+Identificación de valores nulos o inconsistentes.
 
-Código: new_columns.sql
+Eliminación de duplicados y transformación de datos para asegurar su coherencia.
 
-Resumen del código:
+Código relacionado: data_cleaning.sql
 
-Introducción de columnas como:
-Plataformas de redes sociales.
-Horas promedio de uso de redes.
-Impacto calculado del uso de redes.
-Asignación dinámica de valores en base al rendimiento.
+4. 🪯 Incorporación de Nuevas Columnas
 
----
+Objetivo: Añadir métricas personalizadas, como horas de uso de redes sociales y su impacto académico, para análisis más detallados.
 
-4️⃣ Normalización de la Base de Datos
-La base de datos fue normalizada para cumplir con la tercera forma normal (3NF), mejorando la organización y reduciendo redundancias.
+Tareas:
 
-Código: database_normalization.sql
+Inclusión de nuevas columnas calculadas en función de los puntajes académicos.
 
-Resumen del código:
+Ajuste de valores para reflejar las características observadas en los datos.
 
-Se crearon tablas de referencia para:
-Género, raza/etnicidad, nivel educativo de los padres, etc.
-Las relaciones fueron actualizadas mediante claves foráneas.
-Se eliminaron columnas redundantes para mantener consistencia.
+Código relacionado: add_columns.sql
 
----
+5. 📊 Normalización de la Base de Datos
 
-5️⃣ Creación de Vistas
-Se implementaron vistas para facilitar el análisis de los datos a través de consultas específicas.
+Objetivo: Organizar la base de datos en tablas normalizadas para cumplir con las buenas prácticas del diseño relacional (3NF).
 
-Código: views_creation.sql
+Tareas:
 
-Resumen del código:
+Separación de valores categóricos en tablas de referencia.
 
-Vistas agregadas:
-Rendimiento promedio por género.
-Impacto de las redes sociales en el rendimiento.
-Comparación de rendimiento según categorías clave (impacto, almuerzo, etc.).
----
+Uso de claves foráneas para reducir redundancia y mejorar integridad.
 
-🎯 Resultados Esperados
-Base de datos limpia y organizada: Ideal para futuros análisis.
-Vistas analíticas: Ofrecen resúmenes clave para entender tendencias y correlaciones.
-Consultas replicables: Útiles para predecir y modelar datos similares.
+Código relacionado: normalization.sql
 
----
+6. 👁️ Creación de Vistas
 
-## 🛠️ Recursos Utilizados
+Objetivo: Implementar vistas para facilitar el análisis de los datos y responder preguntas específicas del proyecto.
 
-- **MySQL:** Para la gestión y análisis de la base de datos.  
-- **Python (Jupyter Notebook):** Para preparar y enriquecer el dataset antes de cargarlo en SQL.  
-- **Kaggle:** Fuente del dataset base.  
-- **Documentación oficial:** Garantiza el uso de mejores prácticas.
+Tareas:
 
-## 🙌 Colaboración
-Si tienes sugerencias o encuentras algún error, no dudes en abrir un issue o enviar un pull request.
+Creación de vistas agregadas que muestren: Rendimiento promedio por género, impacto del uso de redes sociales, entre otros factores clave.
 
----
+Validación de las vistas para asegurar la consistencia de los datos mostrados.
 
-## 🎯 Próximos Pasos
-- Incorporar más vistas para análisis personalizados.
-- Automatizar la limpieza de datos con procedimientos almacenados.
+Código relacionado: create_views.sql
 
----
+📊 Vistas Agregadas
 
+Rendimiento promedio por género
+
+Impacto de las redes sociales en el rendimiento. Comparación de rendimiento según categorías clave (impacto, almuerzo, etc.).
+
+🛠️ Recursos Utilizados
+
+MySQL: Para la gestión y análisis de los datos.
+
+Git: Seguimiento de cambios y colaboración.
+
+SQL Workbench: Herramienta para ejecutar scripts y gestionar la base de datos.
+
+Google Drive: Almacenamiento inicial de los archivos de los registros originales.
+
+🤝 Colaboración
+
+Si deseas contribuir, por favor abre un issue o envía un pull request.
+
+🚀 Próximos Pasos
+
+Extender el análisis para incluir más plataformas sociales.
+
+Agregar segmentación de datos con procedimientos almacenados adicionales.

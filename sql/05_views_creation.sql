@@ -1,3 +1,5 @@
+CREACION DE VISTAS
+
 -- Vista: Rendimiento promedio por género
 CREATE VIEW avg_performance_by_gender AS
 SELECT 

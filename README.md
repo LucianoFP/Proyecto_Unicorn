@@ -1,87 +1,96 @@
+# Proyecto Unicorn 🦄
 
-# README
-
-Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el uso de redes sociales, influyen en el rendimiento académico de los estudiantes. Evalúa desde la limpieza de datos y la normalización hasta la creación de vistas útiles y análisis personalizados.
-
-## ✨ Pasos del Proyecto
-
-### 1. 🗂️ Creación del Proyecto: **Copia de Seguridad**
-- **Objetivo:** Crear una estructura inicial para almacenar los datos originales, asegurando un respaldo seguro en caso de problemas.
-- **Tareas:**
-  - Generación de archivos de respaldo para proteger la información original.
-- **Código relacionado:** `create_backup.sql`
+Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el uso de redes sociales, influyen en el rendimiento académico de los estudiantes. El análisis incluyó desde la limpieza de datos y la normalización hasta la creación de vistas analíticas y métricas personalizadas.
 
 ---
 
-### 2. 📥 Carga de los Datos
-- **Objetivo:** Importar los datos originales a la base de datos, asegurando un formato limpio y organizado.
-- **Tareas:**
-  - Validación inicial para prevenir errores durante la carga.
-  - Conversión de los datos a un formato estándar compatible con la base de datos.
-- **Código relacionado:** `load_data.sql`
+## 🗂️ Estructura del Proyecto
+
+### 1️⃣ Creación del Proyecto y Carga de Datos
+**Objetivo:** Creación del esquema y respaldo de los datos originales.
+
+- Se aseguraron la integridad y el uso de esquemas para almacenar los datos originales, asegurando un respaldo para cualquier proceso de análisis futuro.
+
+**Archivo:** `01_create_backup.sql`
 
 ---
 
-### 3. 🧺 Limpieza de los Datos
-- **Objetivo:** Implementar reglas de validación y limpieza para asegurar la calidad y consistencia de los datos.
-- **Tareas:**
-  - Identificación de valores nulos o inconsistentes.
-  - Eliminación de duplicados y transformación de datos para asegurar su coherencia.
-- **Código relacionado:** `data_cleaning.sql`
+### 2️⃣ Limpieza de Datos
+**Objetivo:** Implementación de múltiples pasos de validación y limpieza para asegurar la calidad de los datos.
+
+- Identificación de datos nulos, duplicados y valores fuera de rango.
+- Se eliminaron duplicados y se ajustaron valores inconsistentes.
+
+**Archivo:** `02_cleaning_data.sql`
 
 ---
 
-### 4. 🪯 Incorporación de Nuevas Columnas
-- **Objetivo:** Añadir métricas personalizadas, como horas de uso de redes sociales y su impacto académico, para análisis más detallados.
-- **Tareas:**
-  - Inclusión de nuevas columnas calculadas en función de los puntajes académicos.
-  - Ajuste de valores para reflejar las características observadas en los datos.
-- **Código relacionado:** `add_columns.sql`
+### 3️⃣ Incorporación de Nuevas Columnas
+**Objetivo:** Agregar variables relevantes como el uso de redes sociales para enriquecer el análisis.
+
+- Se añadieron columnas como plataformas de redes sociales, horas promedio de uso e impacto calculado en el rendimiento.
+- Los valores se asignaron con lógica personalizada basada en el rendimiento académico.
+
+**Archivo:** `03_add_columns.sql`
 
 ---
 
-### 5. 📊 Normalización de la Base de Datos
-- **Objetivo:** Organizar la base de datos en tablas normalizadas para cumplir con las buenas prácticas del diseño relacional (3NF).
-- **Tareas:**
-  - Separación de valores categóricos en tablas de referencia.
-  - Uso de claves foráneas para reducir redundancia y mejorar integridad.
-- **Código relacionado:** `normalization.sql`
+### 4️⃣ Normalización de la Base de Datos
+**Objetivo:** Transformar la base de datos en un formato normalizado para facilitar consultas complejas.
+
+- Creación de tablas de referencia y actualización de las claves foráneas.
+- Eliminación de redundancia y simplificación del esquema.
+
+**Archivo:** `04_normalization.sql`
 
 ---
 
-### 6. 👁️ Creación de Vistas
-- **Objetivo:** Implementar vistas para facilitar el análisis de los datos y responder preguntas específicas del proyecto.
-- **Tareas:**
-  - Creación de vistas agregadas que muestren: Rendimiento promedio por género, impacto del uso de redes sociales, entre otros factores clave.
-  - Validación de las vistas para asegurar la consistencia de los datos mostrados.
-- **Código relacionado:** `create_views.sql`
+### 5️⃣ Creación de Vistas Analíticas
+**Objetivo:** Generar vistas para facilitar el análisis de los datos a través de consultas específicas.
+
+- Rendimiento promedio por género, redes sociales y nivel educativo.
+- Segmentación de estudiantes por categorías como impacto y uso de redes.
+
+**Archivo:** `05_create_views.sql`
 
 ---
 
-### 📊 **Vistas Agregadas**
+### 6️⃣ Procedimientos Almacenados
+**Objetivo:** Automatizar análisis recurrentes mediante procedimientos SQL.
 
-#### Rendimiento promedio por género
-Impacto de las redes sociales en el rendimiento. Comparación de rendimiento según categorías clave (impacto, almuerzo, etc.).
+- Implementación de un procedimiento para filtrar estudiantes con base en puntajes mínimos e impacto.
+- Simplificación de consultas frecuentes y exploración flexible de datos.
+
+**Archivo:** `06_stored_procedures.sql`
 
 ---
 
-## 🛠️ Recursos Utilizados
+## 📊 Vistas Analíticas
 
-- **MySQL:** Para la gestión y análisis de los datos.
-- **Git:** Seguimiento de cambios y colaboración.
-- **SQL Workbench:** Herramienta para ejecutar scripts y gestionar la base de datos.
-- **Google Drive:** Almacenamiento inicial de los archivos de los registros originales.
+- **Rendimiento promedio por género:** Identificar diferencias clave en el rendimiento académico.
+- **Impacto de las redes sociales:** Comparación de los resultados académicos según plataformas y tiempo de uso.
+- **Nivel educativo de los padres:** Cómo afecta el nivel educativo de los padres en el rendimiento de los estudiantes.
+
+---
+
+## ⚙️ Recursos Utilizados
+
+- **MySQL:** Para la gestión y análisis de la base de datos.
+- **Jupyter Notebook + Python:** Para preprocesar y enriquecer datos antes de cargarlos en SQL.
+- **Kaggle:** Obtención del dataset base.
+- **Documentación Oficial de SQL:** Uso de mejores prácticas.
 
 ---
 
 ## 🤝 Colaboración
 
-Si deseas contribuir, por favor abre un issue o envía un pull request.
+¡Estamos abiertos a sugerencias! Puedes abrir un issue o enviar un pull request.
 
 ---
 
 ## 🚀 Próximos Pasos
 
-- Extender el análisis para incluir más plataformas sociales.
-- Agregar segmentación de datos con procedimientos almacenados adicionales.
+1. Añadir datos externos para análisis relacionados.
+2. Integrar modelos de machine learning para predicciones avanzadas.
+3. Publicar visualizaciones de datos con componentes interactivos.
 

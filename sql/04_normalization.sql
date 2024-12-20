@@ -1,4 +1,6 @@
--- Crear tablas de referencia
+1) Crear tablas de referencia.
+    Vamos a desglosar la tabla principal en varias tablas. Para esto, primero debemos crearlas y luego mas adelante insertarle valores.
+
 CREATE TABLE gender (
     id INT AUTO_INCREMENT PRIMARY KEY,
     gender_name VARCHAR(50) NOT NULL
@@ -29,7 +31,7 @@ CREATE TABLE social_media_platforms (
     platform_name VARCHAR(100) NOT NULL
 );
 
--- Insertar valores únicos desde `students_performance` a las tablas de referencia.
+2) Insertar valores únicos desde `students_performance` a las tablas de referencia.
 INSERT INTO gender (gender_name)
 SELECT DISTINCT gender FROM students_performance;
 
@@ -48,8 +50,7 @@ SELECT DISTINCT test_preparation_course FROM students_performance;
 INSERT INTO social_media_platforms (platform_name)
 SELECT DISTINCT social_media_platforms FROM students_performance;
 
--- Ahora vamos a modificar la tabla `students_performance` para que contenga claves foráneas
--- que referencian a las tablas de referencia creadas anteriormente.
+3) Ahora vamos a modificar la tabla `students_performance` para que contenga claves foráneas que referencian a las tablas de referencia creadas anteriormente.
 
 ALTER TABLE students_performance
 ADD COLUMN gender_id INT,
@@ -59,7 +60,7 @@ ADD COLUMN lunch_id INT,
 ADD COLUMN test_preparation_course_id INT,
 ADD COLUMN social_media_platforms_id INT;
 
--- Actualizar los valores de las claves foráneas en `students_performance`
+4) Actualizar los valores de las claves foráneas en `students_performance`
 UPDATE students_performance sp
 JOIN gender g ON sp.gender = g.gender_name
 SET sp.gender_id = g.id;
@@ -85,7 +86,7 @@ JOIN social_media_platforms sm ON sp.social_media_platforms = sm.platform_name
 SET sp.social_media_platforms_id = sm.id;
 
 
--- Después de actualizar la tabla con las claves foráneas, eliminamos las columnas originales.
+5) Después de actualizar la tabla con las claves foráneas, eliminamos las columnas originales.
 ALTER TABLE students_performance
 DROP COLUMN gender,
 DROP COLUMN race_ethnicity,

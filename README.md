@@ -9,7 +9,7 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 ### 1️⃣ Creación del Proyecto y Carga de Datos
 - **Objetivo:** Creación del esquema y respaldo de los datos originales.
 - **Detalles:** Se asegura la integridad y el uso de una estructura para almacenar los datos originales, asegurando un respaldo que permitirá procesos de análisis futuro.
-- **Archivo:** [`01_create_backup.sql`](01_create_backup.sql)
+- **Archivo:** [01_create_backup.sql](sql/01_create_backup.sql)
 
 ### 2️⃣ Limpieza de Datos
 - **Objetivo:** Implementación de múltiples pasos de validación y limpieza para asegurar la calidad de los datos.

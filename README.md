@@ -73,8 +73,11 @@ Este proyecto demuestra cómo el uso combinado de técnicas de limpieza, normali
 
 Hallazgos principales:
 Rendimiento académico y género: Se identificaron diferencias en el promedio académico según género, con tendencias que pueden guiar estrategias de apoyo educativo más específicas.
+
 Impacto de las redes sociales: Se observó que los estudiantes con un uso moderado de redes sociales tienden a tener un mejor rendimiento que aquellos con un uso extremo (muy alto o muy bajo).
+
 Nivel educativo de los padres: El rendimiento de los estudiantes está correlacionado positivamente con el nivel educativo de los padres, destacando la importancia del contexto familiar en el desempeño escolar.
+
 Las herramientas y procedimientos desarrollados no solo facilitan el análisis, sino que también ofrecen una base sólida para investigaciones futuras y decisiones informadas en el ámbito educativo. Además, este enfoque estructurado y documentado asegura que el proyecto pueda ampliarse o replicarse fácilmente.
 
 

@@ -16,7 +16,8 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 - **Detalles:**
   - Identificación de datos duplicados, valores fuera de rango y errores.
   - Se eliminan o corrigen los valores que afectan negativamente los análisis posteriores.
-- **Archivo:** [`02_cleaning_data.sql`](`02_cleaning_data.sql`)
+- **Archivo:** [02_cleaning_data.sql](sql/02_cleaning_data.sql)
+
 
 ### 3️⃣ Incorporación de Nuevas Columnas
 - **Objetivo:** Agregar columnas útiles para el análisis del uso de redes sociales como predictor del rendimiento.

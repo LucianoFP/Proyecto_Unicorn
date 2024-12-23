@@ -38,7 +38,7 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 - **Detalles:**
   - Rendimiento promedio por género, redes sociales y nivel educativo.
   - Comparaciones específicas por categorías como impacto y uso de redes.
-- **Archivo:** [`05_create_views.sql`](05_create_views.sql)
+- **Archivo:** [05_create_views.sql](sql/05_create_views.sql)
 
 ### 6️⃣ Procedimientos Almacenados
 - **Objetivo:** Automatizar análisis recurrentes mediante procedimientos SQL.

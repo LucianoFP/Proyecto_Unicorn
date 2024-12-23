@@ -31,7 +31,7 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 - **Detalles:**
   - Creación de tablas relacionales y estructuración de los datos finales.
   - Eliminación de redundancia y simplificación de consultas.
-- **Archivo:** [`04_normalization.sql`](04_normalization.sql)
+- **Archivo:** [04_normalization.sql](sql/04_normalization.sql)
 
 ### 5️⃣ Creación de Vistas Analíticas
 - **Objetivo:** Generar vistas para facilitar el análisis de los datos a través de consultas específicas.

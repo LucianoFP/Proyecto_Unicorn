@@ -24,7 +24,7 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 - **Detalles:**
   - Se añaden columnas como plataformas de redes sociales, horas promedio de uso y impacto calculado en el rendimiento.
   - Los valores se asignaron con lógica personalizada basada en el rendimiento académico.
-- **Archivo:** [`03_add_columns.sql`](03_add_columns.sql)
+- **Archivo:** [03_add_columns.sql](sql/03_add_columns.sql)
 
 ### 4️⃣ Normalización de la Base de Datos
 - **Objetivo:** Transformar la base de datos en un formato normalizado para facilitar consultas complejas.

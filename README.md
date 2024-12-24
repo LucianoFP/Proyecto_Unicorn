@@ -22,7 +22,7 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
 ### 3️⃣ Incorporación de Nuevas Columnas
 - **Objetivo:** Agregar columnas útiles para el análisis del uso de redes sociales como predictor del rendimiento.
 - **Detalles:**
-  - Se añaden columnas como plataformas de redes sociales, horas promedio de uso y impacto calculado en el rendimiento.
+  - Se añaden columnas como plataformas de redes sociales, horas promedio de uso e impacto calculado en el rendimiento.
   - Los valores se asignaron con lógica personalizada basada en el rendimiento académico.
 - **Archivo:** [03_add_columns.sql](sql/03_add_columns.sql)
 

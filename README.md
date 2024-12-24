@@ -1,4 +1,4 @@
-# Proyecto Unicorn 🦄
+# 🧑‍🎓 Análisis del Rendimiento Académico de los Estudiantes
 
 Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el uso de redes sociales, influyen en el rendimiento académico de los estudiantes. El análisis incluye desde la limpieza de datos y la normalización hasta la creación de vistas analíticas y métricas personalizadas.
 

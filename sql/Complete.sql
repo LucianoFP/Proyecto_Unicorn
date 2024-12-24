@@ -334,6 +334,102 @@ INSERT INTO `test_preparation_course` VALUES (1,'none'),(2,'completed');
 UNLOCK TABLES;
 
 --
+-- Dumping routines for database 'git'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `calculate_social_media_avg_by_gender` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calculate_social_media_avg_by_gender`()
+BEGIN
+    SELECT 
+        gender AS 'Género',
+        ROUND(AVG(hours_on_social_media), 2) AS 'Promedio de Uso de Redes Sociales (horas)'
+    FROM 
+        student_data
+    GROUP BY 
+        gender
+    ORDER BY 
+        gender;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `FilterPerformanceByImpact` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `FilterPerformanceByImpact`(
+    IN min_math INT,
+    IN min_reading INT,
+    IN min_impact FLOAT
+)
+BEGIN
+    SELECT 
+        id, 
+        math_score, 
+        reading_score, 
+        impact_score
+    FROM students_performance
+    WHERE math_score >= min_math 
+      AND reading_score >= min_reading 
+      AND impact_score >= min_impact;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `identify_students_at_risk` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `identify_students_at_risk`()
+BEGIN
+    SELECT 
+        student_id AS 'ID Estudiante',
+        name AS 'Nombre',
+        academic_performance AS 'Rendimiento Académico',
+        hours_on_social_media AS 'Horas en Redes Sociales',
+        CASE 
+            WHEN academic_performance < 50 AND hours_on_social_media > 5 THEN 'Alto Riesgo'
+            WHEN academic_performance < 70 AND hours_on_social_media > 4 THEN 'Moderado'
+            ELSE 'Bajo'
+        END AS 'Nivel de Riesgo'
+    FROM 
+        student_data
+    WHERE 
+        academic_performance < 70
+    ORDER BY 
+        academic_performance ASC, hours_on_social_media DESC;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
 -- Final view structure for view `avg_performance_by_gender`
 --
 
@@ -504,4 +600,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Dump completed on 2024-12-24  9:53:26
 -- Dump completed on 2024-12-23 23:24:40

@@ -46,7 +46,6 @@ Este proyecto utiliza SQL para analizar cómo diversos factores, incluyendo el u
   - Implementación de un procedimiento para filtrar estudiantes con bajo rendimiento según métricas e impacto.
   - Simplificación de consultas y generación de reportes flexibles de datos.
 - **Archivo:** [06_store_procedures.sql](sql/06_store_procedures.sql)
-
 ---
 
 ## 📊 Vistas Analíticas
